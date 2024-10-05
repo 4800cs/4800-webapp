@@ -3,8 +3,8 @@ import { useState } from 'react';
 import homepagestyles from './social-media-homepage.module.css'; // adjust the path as necessary
 import styles from '../styles/app.layout.css';
 import Image from "next/image";
-import Navbar from "../../components/Navbar";
 import Link from 'next/link';
+import LeftMenu from '../../components/leftmenu/left-menu';
 
 export default function Projects() {
 	{/*Adjustable sidebar function section*/}
@@ -141,31 +141,16 @@ export default function Projects() {
 	
 	return (
 		<>
-		<header className={styles.header}>
-		<Navbar />
-		</header>
+		<div className="flex gap-6 pt-6">
+			<div className="hidden xl:block w-[20%]">
+				<LeftMenu type="home"/>
+			</div>
 		<main className={styles.mainContainer}>
 			{/* sidebar section start */}
-			<div className={homepagestyles.sidebar} style={{ width: sidebarWidth}}>
-				<div className={homepagestyles.dragHandle} onMouseDown={handleMouseDown}>
-					<div className={homepagestyles.indicator}>&lt;&gt;</div>
-				</div>
-					
 			{ /* sidebar content can go here */}
-			<p>Sidebar Content</p>
-			</div>
 			{/* sidebar section ends */}
-			
 			{/*display tabs section for navigation*/}
 			<div className={homepagestyles.contentContainer} style={{ marginRight: setSidebarWidth}}>
-          		<nav className={homepagestyles.navContainer}>
-          			<Link href="/social-media-app" className={homepagestyles.linkBox}>
-            			Home
-          			</Link>
-                	<Link href="/social-media-app/friends-list" className={homepagestyles.linkBox}>
-            			Friends List
-          			</Link>
-          		</nav>
 				{/*button for creating post*/}
 				<div className={homepagestyles.createPostContainer}>
 					<button onClick={toggleCreatePost} className={homepagestyles.createPostButton}>
@@ -236,11 +221,7 @@ export default function Projects() {
                          </div>
                      </div>
                   ))}
-            </div>
-			{/*end posts display section*/}
-		</div>
-			<div>
-        	<Image
+				<Image
 				src="/vision_text.png"
 				width={200}
 				height={200} />
@@ -248,7 +229,11 @@ export default function Projects() {
 				src="/logo.png"
 				width={200}
 				height={200} />
-			</div>
-		</main></>
+            </div>
+			{/*end posts display section*/}
+		</div>
+		</main>
+		</div>
+		</>
 	);
 }

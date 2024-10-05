@@ -1,11 +1,10 @@
 import Image from "next/image";
 import styles from './styles/Home.module.css';
-import Navbar from "./../components/Navbar";
 import Link from 'next/link';
 
 export default function Projects() {
 	return (
-		<><Navbar /><div className={styles.container}>
+		<><div className={styles.container}>
 			<header className={styles.banner}>
 				<Image
 					src="/logo.png"
@@ -54,6 +53,10 @@ export default function Projects() {
 					<Link href="/login" className="text-blue-500 underline">
 						Login
 					</Link>
+					<br></br>
+					<a href="https://docs.google.com/document/d/1RNHzGb3442Y0YrATVcvWDxm0UJirZVpThLXKm2nUE9A/edit" className="text-blue-500 underline">
+						Meeting Logs
+					</a>
 				</header>
 			</main>
 		</div></>
