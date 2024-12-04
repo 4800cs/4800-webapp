@@ -7,7 +7,7 @@ import styles from '../styles/app.layout.css';
 import Link from 'next/link';
 
 export default function RootLayout({ children }) {
-  useEffect(() => {
+  /*useEffect(() => {
     const container = document.createElement('div');
     container.className = 'shooting-stars-container';
     document.body.appendChild(container);
@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
     return () => {
       container.remove();
     };
-  }, []);
+  }, []);*/
   return (
     <>
       <Navbar/>
