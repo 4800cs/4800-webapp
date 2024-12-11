@@ -1,6 +1,6 @@
 "use client";
 
-import styles from '../styles/Home.module.css';
+import styles from '../styles/login-page.module.css';
 import Link from 'next/link';
 import { useState } from 'react';
 import * as Fetch from '../../components/Functions';
@@ -32,109 +32,106 @@ export default function SignUp() {
 	};
 
     return(
-        <main>
           <div className={styles.container}>
-            <aside className="bg-white w-full max-w-md rounded-xl  bg-opacity-20 shadow-lg shadow-black">
-              <h1 className="text-center text-black font-light text-4xl bg-navy rounded-t-xl m-0 py-4">Sign Up</h1>
+            <div className={styles.tabs}>
+              <button type="label" className={styles.tab}><Link href="/login">Sign In</Link></button>
+              <button type="active" className={styles.active}>Create Account</button>
+            </div>
               <form className="p-6" onSubmit={(e) => e.preventDefault()}>
-                <input
-                  type="text"
-                  name="username"
-                  placeholder="Username"
-                  className="py-2 px-3 w-full text-black text-lg font-light outlined-none"
-                  value={userData.username}
-                  onChange={handleInputChange}
-                />
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  className="py-2 px-3 w-full text-black text-lg font-light outlined-none mt-3"
-                  value={userData.password}
-                  onChange={handleInputChange}
-                />
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Confirm Password"
-                  className="py-2 px-3 w-full text-black text-lg font-light outlined-none mt-3"
-                  value={userData.confirmPassword}
-                  onChange={handleInputChange}
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="py-2 px-3 w-full text-black text-lg font-light outlined-none mt-3"
-                  value={userData.email}
-                  onChange={handleInputChange}
-                />
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Full Name"
-                  className="py-2 px-3 w-full text-black text-lg font-light outlined-none mt-3"
-                  value={userData.fullName}
-                  onChange={handleInputChange}
-                />
-                <input
-                  type="text"
-                  name="phoneNumber"
-                  placeholder="Phone Number"
-                  className="py-2 px-3 w-full text-black text-lg font-light outlined-none mt-3"
-                  value={userData.phoneNumber}
-                  onChange={handleInputChange}
-                />
-                <input
-                  type="text"
-                  name="address"
-                  placeholder="Street Address"
-                  className="py-2 px-3 w-full text-black text-lg font-light outlined-none mt-3"
-                  value={userData.address}
-                  onChange={handleInputChange}
-                />
-                <input
-                  type="text"
-                  name="city"
-                  placeholder="City"
-                  className="py-2 px-3 w-full text-black text-lg font-light outlined-none mt-3"
-                  value={userData.city}
-                  onChange={handleInputChange}
-                />
-                <input
-                  type="text"
-                  name="state"
-                  placeholder="State"
-                  className="py-2 px-3 w-full text-black text-lg font-light outlined-none mt-3"
-                  value={userData.state}
-                  onChange={handleInputChange}
-                />
-                <input
-                  type="text"
-                  name="zipCode"
-                  placeholder="Zip Code"
-                  className="py-2 px-3 w-full text-black text-lg font-light outlined-none mt-3"
-                  value={userData.zipCode}
-                  onChange={handleInputChange}
-                />
-
-                <div className="flex mt-5 justify-between items-center">
-                  <Link href="/login" className="text-white cursor-pointer transition hover:text-black">
+                <label type="label" className={styles.inputGroup}>
+                  <input
+                    type="text"
+                    name="fullName"
+                    placeholder="Enter your Full Name"
+                    value={userData.fullName}
+                    onChange={handleInputChange}
+                    className={styles.inputGroup}
+                  />
+                  <input
+                    type="input"
+                    name="username"
+                    placeholder="Create a Username"
+                    value={userData.username}
+                    onChange={handleInputChange}
+                    className={styles.inputGroup}
+                  />
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Create a Password"
+                    value={userData.password}
+                    onChange={handleInputChange}
+                    className={styles.inputGroup}
+                  />
+                  <input
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Confirm your Password"
+                    value={userData.confirmPassword}
+                    onChange={handleInputChange}
+                    className={styles.inputGroup}
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your Email"
+                    value={userData.email}
+                    onChange={handleInputChange}
+                    className={styles.inputGroup}
+                  />
+                  <input
+                    type="text"
+                    name="phoneNumber"
+                    placeholder="Enter your Phone Number"
+                    value={userData.phoneNumber}
+                    onChange={handleInputChange}
+                    className={styles.inputGroup}
+                  />
+                  <input
+                    type="text"
+                    name="address"
+                    placeholder="Enter your Street Address"
+                    value={userData.address}
+                    onChange={handleInputChange}
+                    className={styles.inputGroup}
+                  />
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder="Enter your City"
+                    value={userData.city}
+                    onChange={handleInputChange}
+                    className={styles.inputGroup}
+                  />
+                  <input
+                    type="text"
+                    name="state"
+                    placeholder="Enter your State"
+                    value={userData.state}
+                    onChange={handleInputChange}
+                    className={styles.inputGroup}
+                  />
+                  <input
+                    type="text"
+                    name="zipCode"
+                    placeholder="Enter your Zip Code"
+                    value={userData.zipCode}
+                    onChange={handleInputChange}
+                    className={styles.inputGroup}
+                  />
+                </label>
+                  <Link href="/login" className={styles.haveAccount}>
                     Already Registered?
                   </Link>
                   {/* Add the button here */}
                   <button
                     type="button"
                     onClick={createUser}
-                    className="bg-navy text-white px-4 py-2 rounded hover:bg-opacity-80"
+                    className={styles.submitButton}
                   >
                     Sign Up
                   </button>
-                </div>
               </form>
-            </aside>
           </div>
-        </main>
-
     );
 }

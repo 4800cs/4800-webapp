@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from 'react';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/login-page.module.css';
+import Image from "next/image";
 import Link from 'next/link';
 import * as Fetch from '../../components/Functions';
+import Navbar from "../../components/Navbar";
+
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
@@ -25,34 +28,81 @@ const LoginForm = () => {
 
     return (
         <div>
+            <Navbar/>
             <div className={styles.container}>
-                <aside className="bg-white w-full max-w-md rounded-xl bg-opacity-20 shadow-lg shadow-black">
-                    <h1 className="text-center text-black font-light text-4xl bg-navy rounded-t-xl m-0 py-4">Sign In</h1>
+                    <div className={styles.tabs}>
+                        <button type="active" className={styles.active}>Sign In</button>
+                        <button type="label" className={styles.tab}><Link href="/sign-up">Create Account</Link></button>
+                    </div>
                     <form className="p-6" onSubmit={handleSubmit}>
-                        <input
-                            type="text"
-                            placeholder="Username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            className="py-2 px-3 w-full text-black text-lg font-light outlined-none"
-                        />
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="py-2 px-3 w-full text-black text-lg font-light outlined-none mt-3"
-                        />
-                        {error && <p className="text-red-500 mt-3">{error}</p>}
-                        <div className="flex mt-5 justify-between items-center">
-                            <Link href="/sign-up" className="text-white cursor-pointer transition hover:text-black">Not Yet Registered?</Link>
-                            <button type="submit" className="bg-black text-white font-medium py-2 px-8 transition hover:text-white">Sign In</button>
-                        </div>
+                        <label type="label" className={styles.inputGroup}>
+                            Username
+                            <input
+                                type="input"
+                                className={styles.inputGroup}
+                                placeholder="Enter Username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                        </label>
+                        <label type="label" className={styles.inputGroup}>
+                            Password
+                            <input
+                                type="password"
+                                className={styles.inputGroup}
+                                placeholder="Enter Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </label>
+                        <Link href="/sign-up" className={styles.noAccount}>Don't have an account?</Link>
+                        {error && <p className="text-red-500">{error}</p>}
+                        <button type="submit" className={styles.submitButton}>Sign In</button>
                     </form>
-                </aside>
+                    
             </div>
+            
         </div>
     );
 };
 
 export default LoginForm;
+
+{/*return (
+    <div>
+        <Navbar/>
+        <div className={styles.container}>
+                <div className={styles.tabs}>
+                    <button type="active" className={styles.active}>Sign In</button>
+                    <button type="submit" className={styles.tab}>Create Account</button>
+                </div>
+                <form className="p-6" onSubmit={handleSubmit}>
+                    <label type="label" className={styles.inputGroup}>
+                        Username
+                        <input
+                            type="input"
+                            className={styles.inputGroup}
+                            placeholder="Enter Username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            
+                        />
+                    </label>
+                    <label type="label" className={styles.inputGroup}>
+                        Password
+                        <input
+                            type="password"
+                            className={styles.inputGroup}
+                            placeholder="Enter Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </label>
+                    <Link href="/sign-up" className={styles.noAccount}>Don't have an account?</Link>
+                    {error && <p className="text-red-500">{error}</p>}
+                    <button type="submit" className={styles.submitButton}>Sign In</button>
+                </form>
+        </div>
+    </div>
+    );
+};*/}
